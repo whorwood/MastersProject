@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1657639601 "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.tex" "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.pdf" "conference_101719" 1657639619
-  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.aux" 1657639602 1206 ca446021c20bfdd0f7243dba43bfd08a ""
-  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.tex" 1657639617 10845 fcd6539476547e698781c0d723bcae43 ""
+["pdflatex"] 1657639766 "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.tex" "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.pdf" "conference_101719" 1657639767
+  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.aux" 1657639767 1206 ca446021c20bfdd0f7243dba43bfd08a ""
+  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.tex" 1657639765 10835 07b6b37618b5be7bc9bfd8e789f0b72a ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -127,12 +127,12 @@
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1594417619 2432460 b72507735fe6b8e3606efc3a8660eb4f ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
   "IEEEtran.cls" 1440640124 288304 b67b6fc6c2abb39f9b461923f5199343 ""
-  "conference_101719.aux" 1657639602 1206 ca446021c20bfdd0f7243dba43bfd08a "pdflatex"
-  "conference_101719.tex" 1657639617 10845 fcd6539476547e698781c0d723bcae43 ""
+  "conference_101719.aux" 1657639767 1206 ca446021c20bfdd0f7243dba43bfd08a "pdflatex"
+  "conference_101719.tex" 1657639765 10835 07b6b37618b5be7bc9bfd8e789f0b72a ""
   "guitar.png" 1657467197 50765 fa7b45c6eb2e2da588acbc89604d04f3 ""
   (generated)
-  "conference_101719.pdf"
-  "conference_101719.aux"
-  "conference_101719.log"
   "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.log"
+  "conference_101719.log"
+  "conference_101719.pdf"
   "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.pdf"
+  "conference_101719.aux"
