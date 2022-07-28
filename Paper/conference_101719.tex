@@ -60,11 +60,14 @@ An efficient CNN based approach for onset detection has been proposed \cite{b1} 
 downbeat positions in a range of genres of music and outperforms other competing methods such as RNN and SuperFlux. The F-measure of the CNN system is 0.885 compared to 0.873 for RNN. This
 is shown to be improved upon further by adding dropout, something which needs to be considered here, especially with a small dataset which can suffer from overfitting \cite{b8}.
 
+A paper for Automatic Drum Transaction found two different setups worked better in different contexts. A Soft Attention Bidirectional RNN (SA) and a CNN. It was found that the SA performed
+better for cases where the context was known i.e. just percussion or a mix of percussion and polyphonic. The CNN performed better in the scenarios where the context was unknown.
+
 For detecting specific patterns of onsets, the system will require an internal 'memory' to create a causal system. This is commonly achieved using an LSTM layer combined with CNN \cite{b6}, with this paper in
 particular focussing on its use for music emotion recognition. Another pattern recognition option is the use of CRNNs as described in \cite{b7}, which combines the local features of CNNs with temporal features of RNNs.
 
 The latency of the system needs to be low enough to not have a detrimental effect on playability. For musicians even a delay of 10ms between musical beats \cite{b4} is noticeable. This paper however
-focusses on musical latency whereas the system proposed will be used for control of effects, so the tolerance may well be higher. 
+focusses on musical latency whereas the system proposed will be used for control of effects, so the tolerance may well be higher.
 
 The parts of the guitar that are focussed on are the front body, divided into the lower and upper bout, the saddle, and the side \cite{b3}. The positions of these can be seen in ``Fig.~\ref{guitar}'.
 
@@ -76,6 +79,8 @@ The parts of the guitar that are focussed on are the front body, divided into th
 
 
 \section{Methodology}
+The system will make use of the HyVibe System Installation Kit which consists of an under-saddle piezoelectric pickup, \cite{b9}.
+
 There are many sections of a guitar which can be struck to produce a sound. These can be split into harmonic and inharmonic components, the strings produce harmonic content when
 struck whereas the body of the guitar produces inharmonic content. The harmonicity refers to the relationship of frequencies where there are integer multiples of the fundamental frequency.
 Many guitar players also use the inharmonic components to act as percussion. 
@@ -94,6 +99,9 @@ The full neural network is: convolution (3x7) with 10 features, maxpool (3x1), c
 
 The real time detection system is written in Python and subsequently sends serial messages to an ESP32 development board which is programmed in C++ to send a MIDI BLE message when a serial
 message of `1' is received.
+
+The final stage of testing involves using the guitar as an end-user would with a combination of typical guitar playing, percussive taps and control taps. To maximize reproducibility potential,
+a defined set of chords will be played along with specific tapping locations. From this the F-measure will be calculated manually.
 
 \begin{figure}[htbp]
     \begin{tikzpicture}
@@ -165,6 +173,12 @@ the serial message directly from the Python script via a keyboard press, the lat
 There is a serious bottleneck in the system at the serial communication layer. The onset detection itself only accounts for an average of 130ms of latency. Other methods to relay the signal
 from Python may have to be considered.
 
+The second prototype is more realistic scenario with string sounds included in the dataset instead of the strings being baffled. This now includes two control tap scenarios, both baffled and non-baffled, and the two other non control taps both baffled and non-baffled,
+so a total of 6 scenarios. The F-measure remains fairly high at 0.98.
+
+It seems that percussive taps occurring at positions over the internal braces are more likely to be misclassified as control taps, possibly due to the acoustic resonance here being more similar to the saddle which is also structurally attached to
+the braces. The is evaluated further by creating 2 new datasets of percussive taps, one with taps occurring above the internal braces and one with taps occurring away from the internal braces. The F-measure is then calculated for each of these datasets.
+Figure shows the approximate location of these braces in the guitar under test, this will vary with different guitars, but a similar principal can be applied. 
 
 \begin{thebibliography}{00}
 \bibitem{b1} J. Schlüter and S. Böck, ``Improved musical onset detection with Convolutional Neural Networks,'' 2014 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2014, pp. 6979-6983, doi: 10.1109/ICASSP.2014.6854953.
@@ -174,7 +188,11 @@ from Python may have to be considered.
 \bibitem{b5} M. A. Rohit, A. Bhattacharjee and P. Rao, ``FOUR-WAY CLASSIFICATION OF TABLA STROKES WITH MODELS ADAPTED FROM AUTOMATIC DRUM TRANSCRIPTION'', 22nd ISMIR Conference, Nov. 2021.
 \bibitem{b6} Y. Yu, ``Research on Music Emotion Classification Based on CNN-LSTM Network,'' 2021 5th Asian Conference on Artificial Intelligence Technology (ACAIT), 2021, pp. 473-476, doi: 10.1109/ACAIT53529.2021.9731277.
 \bibitem{b7} Z. Wang, S. Muknahallipatna, M. Fan, A. Okray and C. Lan, ``Music Classification using an Improved CRNN with Multi-Directional Spatial Dependencies in Both Time and Frequency Dimensions,'' 2019 International Joint Conference on Neural Networks (IJCNN), 2019, pp. 1-8, doi: 10.1109/IJCNN.2019.8852128.
-\bibitem{b8} N. Srivastava, G. Hinton, A. Krizhevsky, I. Sutskever and R. Salakhutdinov. ``Dropout: a simple way to prevent neural networks from overfitting.'' J. Mach. Learn. Res. 15, 1 (January 2014), 1929–1958, 2014.
+\bibitem{b8} N. Srivastava, G. Hinton, A. Krizhevsky, I. Sutskever and R. Salakhutdinov, ``Dropout: a simple way to prevent neural networks from overfitting,'' J. Mach. Learn. Res. 15, 1 (January 2014), 1929–1958, 2014.
+\bibitem{b9} HyVibe SA, ``HyVibe System Installation Instructions'', 2021, https://www.hyvibeguitar.com/wp-content/uploads/2021/05/HyVibe-Installation-Instructions-EN.pdf.
+\bibitem{b10} HyVibe SA, ``MIDI Instructions'', 2022, https://www.hyvibeguitar.com/airturn-midi-instructions/.
+\bibitem{b11} C. Southall, R. Stables and J. Hockman, ``Automatic Drum Transcription for Polyphonic Recordings Using Soft Attention Mechanisms and Convolutional Neural Networks,'' ISMIR, 2017.
+\bibitem{b12} X. Qingyang, R. Bittner, J. Pauwels, X. Ye and J. Bello, ``GuitarSet: A Dataset for Guitar Transcription,'' ISMIR, 2018, doi: 10.5281/zenodo.1492449.
 
 \end{thebibliography}
 \vspace{12pt}

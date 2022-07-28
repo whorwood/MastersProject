@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.10)  12 JUL 2022 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.10)  28 JUL 2022 17:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.tex"
-(/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.tex
+**"/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.tex"
+(/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.tex
 LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/IEEEtran.cls
+L3 programming layer <2020-03-06> (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -403,7 +403,7 @@ File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count285
 \l__pdf_internal_box=\box60
-) (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.aux)
+) (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux)
 \openout1 = `conference_101719.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -444,42 +444,57 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 <guitar.png, id=4, 615.29875pt x 274.02374pt>
 File: guitar.png Graphic file (type png)
 <use guitar.png>
-Package pdftex.def Info: guitar.png  used on input line 72.
+Package pdftex.def Info: guitar.png  used on input line 75.
 (pdftex.def)             Requested size: 246.11513pt x 109.60754pt.
  [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
- </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/guitar.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 105.
+ </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/guitar.png>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 113.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 105.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 113.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 2538) in paragraph at lines 171--172
+Underfull \hbox (badness 2538) in paragraph at lines 185--186
 []\OT1/ptm/m/n/8 C. -W. Wu et al., ``A Re-view of Au-to-matic Drum Tran-scrip-
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 171--172
+Underfull \hbox (badness 2418) in paragraph at lines 185--186
 \OT1/ptm/m/n/8 tion,'' in IEEE/ACM Trans-ac-tions on Au-dio, Speech, and Lan-
  []
 
 
-Underfull \hbox (badness 4467) in paragraph at lines 175--176
+Underfull \hbox (badness 4467) in paragraph at lines 189--190
 []\OT1/ptm/m/n/8 Y. Yu, ``Re-search on Mu-sic Emo-tion Clas-si-fi-ca-tion Based on
  []
 
 
-Underfull \hbox (badness 4792) in paragraph at lines 175--176
+Underfull \hbox (badness 4792) in paragraph at lines 189--190
 \OT1/ptm/m/n/8 CNN-LSTM Net-work,'' 2021 5th Asian Con-fer-ence on Ar-ti-fi-
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 175--176
+Underfull \hbox (badness 3148) in paragraph at lines 189--190
 \OT1/ptm/m/n/8 cial In-tel-li-gence Tech-nol-ogy (ACAIT), 2021, pp. 473-476, doi:
+ []
+
+
+Underfull \hbox (badness 7595) in paragraph at lines 192--193
+[]\OT1/ptm/m/n/8 HyVibe SA, ``HyVibe Sys-tem In-stal-la-tion In-struc-tions'', 2021,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--193
+\OT1/ptm/m/n/8 https://www.hyvibeguitar.com/wp-content/uploads/2021/05/HyVibe-
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+[]\OT1/ptm/m/n/8 HyVibe SA, ``MIDI In-struc-tions'', 2022,
  []
 
 
@@ -493,20 +508,22 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2] (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.aux) ) 
+[3
+
+] (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux) ) 
 Here is how much of TeX's memory you used:
- 13732 strings out of 480608
- 272423 string characters out of 5903630
- 493008 words of memory out of 5000000
- 29388 multiletter control sequences out of 15000+600000
+ 13736 strings out of 480608
+ 272508 string characters out of 5903630
+ 493023 words of memory out of 5000000
+ 29392 multiletter control sequences out of 15000+600000
  563404 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,8n,60p,496b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,60p,502b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/conference_101719.pdf" (2 pages, 112271 bytes).
+Output written on "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" (3 pages, 114733 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 29 compressed objects within 1 object stream
+ 45 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
