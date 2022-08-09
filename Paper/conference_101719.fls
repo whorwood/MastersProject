@@ -212,6 +212,8 @@ INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/guitar.png
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/guitar.png
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd

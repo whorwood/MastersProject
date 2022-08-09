@@ -29,6 +29,8 @@ ec21904@qmul.ac.uk}
 
 \begin{abstract}
 
+    The system achieves around 75\% for a realistic implementation triggering a control change whilst playing a series and chords and performing some percussive actions.
+
 \end{abstract}
  
 \section{Introduction}
@@ -48,9 +50,20 @@ The aim is to have a system that can detect 2 types of control taps to send out 
 \section{Literature review}
 
 \subsection{Percussive classification}
+In a review of current onset detection techniques in the scope of Automatic Drum Transcription (ADT), it is noted that this task is more challenging than with pitched instruments
+due to the wide frequency response produced and noisy onsets. It groups current techniques into several methods ``Segmentation-Based'', ``Classification-Based'', ``Language-Based''
+ and ``Activation-Based''. ``Segmentation-Based'' methods tend to use simple Onset Detection functions based around the envelope of the signal. This has the advantage of being very simple
+to implement however this method tends to perform poorly when other types of instrument, particularly pitched, are added to the mix. ``Classification-Based'' methods are based around
+a more complex input representation combining things such as spectral centroid, RMS energy and Mel-Frequency Cepstral Coefficients. The input representation can be finely tuned to increase
+the accuracy of classification. This still suffers from interference of melodic instruments if these have not been introduced in the training phase.``Language-Based'' methods use language
+models such as Hidden Markov Models (HMMs) to detect patterns in the features of the audio. It is not commonly used in ADT scenarios as the structure of music does not follow patterns
+as closely as natural language. Modern ``Activation-Based'' methods use either Non-negative Matrix Factorisation (NMF) or Recurrent Neural Network (RNN) and produce easy to interpret
+outputs and can also be used in source separation tasks. They can suffer from degradation due to sources overlapping. This section also outlines the use of CNNs in the most recent papers. 
+The paper concludes that the RNN based approaches tend to be the most accurate. This paper does not evaluate the CRNN and CNN methods. 
 
-In a review of current onset detection techniques, modern approaches of using a Convolutional Neural Network (CNN) such as with image classification are shown to be more efficient than 
-more traditional methods such as High Frequency Content or Recurrent Neural Networks (RNNs) ().
+A paper for Automatic Drum Transaction found three different methods worked better in different contexts. These are a Soft Attention Bidirectional RNN (SA), BRNN with Peripheral Connections (PC) and a CNN. 
+It was found that the SA method performed better for cases where the context was known i.e. just percussion or a mix of percussion and polyphonic. The CNN performed better in the 
+scenarios where the context was unknown. The context of this paper's proposed system is unknown as the \emph{control taps} could take place alongside other pitched sounds from the strings.
 
 A CNN neural network aims to detect spacially invariant patterns. A filter consisting of weights is shifted along the input one element at a time (with a stride of 1), with each iteration the result is summed.
 The translation invariance means that the pattern can be shifted to different positions in the input and still be detected. Ultimately, the dense layer will determine how different locations of matches
@@ -65,15 +78,13 @@ There are many sections of a guitar which can be struck to produce a sound, thes
 struck whereas the body of the guitar produces mainly inharmonic content . The harmonicity refers to the relationship of frequencies where there are integer multiples of the fundamental frequency.
 Many guitar players also use the inharmonic components to act as percussion. 
 
-The tap control locations are designed to be as ergonomic as possible . 
+The tap control locations are designed to be as ergonomic as possible, particularly considering existing research on injury due to guitar playing . This study suggests that for the control parts 
+of the guitar in particular, these should not cause wrist flexion or extensions. 
 
 There has been research undertaken regarding the location and types of percussive guitar gestures. 
 
 Datasets have been produced previously on percussive onsets occurring on different parts of a guitar. However, the method of recording these percussive sounds is through microphones placed at various locations and there
 are no recordings from an under-saddle pickup. 
-
-A paper for Automatic Drum Transaction found two different setups worked better in different contexts. A Soft Attention Bidirectional RNN (SA) and a CNN. It was found that the SA performed
-better for cases where the context was known i.e. just percussion or a mix of percussion and polyphonic. The CNN performed better in the scenarios where the context was unknown.
 
 The latency of the system needs to be low enough to not have a detrimental effect on playability. For musicians even a delay of 10ms between musical beats \cite{b4} is noticeable. This paper however
 focusses on musical latency whereas the system proposed will be used for control of effects, so the tolerance may well be higher.
@@ -85,13 +96,11 @@ make use of libraries built for this purpose, however the overall architecture m
 is responsible for starting the connection. The `peripheral' accepts connections. In this scenario the HyVibe system is the `central' device and controls all the settings. The made benefit of this protocol is self-described,
 its low energy capability, with a power consumption approximately 1.5 times lower than the similar protocol `ANT+'.
 
-
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.4]{guitar.png}}
     \caption{Labelled parts of an acoustic guitar. \cite{b3}}
     \label{guitar}
     \end{figure}
-
 
 \section{Methodology}
 The system will make use of the HyVibe System Installation Kit which consists of an under-saddle piezoelectric pickup, main controller unit, a connection panel for audio and charging, and two actuators (HyVibe, 2021).
@@ -99,57 +108,56 @@ This system is installed on an existing electroacoustic guitar with the piezoele
 the body of the guitar. Instead, the cable for the piezoelectric sensor is fed through a slot in the body to be connected to the rest of the electronics which remain outside the guitar. This experimental setup can be
 seen in Figure. 
 
-There will be one 'control tap' used to change a parameter on the HyVibe system. Based on the percussive guitar research, it is decided to have the control tap as a single-finger tap on the bridge area, to the side of
-the saddle, the location is detailed in Figure. Two non-control onsets are also used, a single-finger tap on the lower-bout area and a slap-like gesture using the underside of the hand on the side of the guitar body. These are two common areas where percussive guitar would occur, thus
-it is important to see if a system could detect the differences between each type of onset.
+The first experiment is to test the performance of a CNN model to detect onsets and tune the hyperparameters. There will be one \emph{control tap} used to trigger a parameter change on the HyVibe system. Based on the percussive guitar research, it is decided to have the \emph{control tap} as a single-finger tap on the bridge area, to the side of
+the saddle, the location is detailed in Figure. This will be known as \emph{bridge tap}. The \textbf{initial} dataset is created which involved stopping any movement of the guitar strings by baffling them with a cloth. 100 \emph{bridge taps} are recorded and hand annotated, these are varied as much as possible
+in terms of the tap velocity and the exact location of impact on the bridge. The dataset is shuffled to have a random selection of 80\% for training with a remaining 20\% reserved for offline testing. 
 
-A script is developed to train a neural network and evaluate its performance, this is written is Python using the TensorFlow library. This, along with the datasets can be found at .
-
-As seen in Figure, the analogue signal output from the piezoelectric sensor is amplified by the HyVibe sensor before being converted to digital by the audio interface. The datasets are recording in Logic Pro along to
+As seen in Fig. \ref{system}, the analogue signal output from the piezoelectric sensor is amplified by the HyVibe sensor before being converted to digital by the audio interface. The datasets are recording in a DAW along to
 a metronome of 60bpm, the audio files are recorded at 44.1kHz, 24-bit in WAVE uncompressed format. The onsets occur at approximately 1 second intervals however these intervals are not accurate. Therefore, these files are imported 
 to Audacity where the onsets are labelled manually and exported as a text file with each onset's absolute time position in seconds.
 
-To train the detection system, the audio signal is first converted to the frequency domain via a Short-Time Fourier Transform (STFT) using the 'librosa' Python library. The output is windowed
-using 15 time-bin wide sections shifting by 1 each time with a corresponding ground truth relating to the centre of the window. The ground truth is an array 3 integers, corresponding to an occurrence of either 'bridge tap', 'lower bout tap' or
-'side slap'. 
+A script is developed to train a neural network model and evaluate its performance, this is written is Python using the TensorFlow library. This, along with the datasets can be found at . To train the detection system, the audio signal is first converted to the frequency domain via a Short-Time Fourier Transform (STFT) using the 'librosa' Python library. The output is windowed
+using 15 time-bin wide sections shifting by 1 each time with a corresponding ground truth relating to the presence of an onset at the centre of the window.
 
-The neural network itself is based around the structure of . The full neural network is: convolution (3x7) with 10 features, maxpool (3x1), convolution (3x3) with 20 features, maxpool (3x1), flatten, Dense (256), Dense (3).
-The hyperparameters of the neural network are refined by testing their performance in a tap onset detection task. First, the hop size of the FFT is decreased to 1024 from 2048 improving the F-measure to 0.9934. This is decreased again by half to check this trend,
+The neural network itself is based around the structure of . The model is started with the structure: convolution (3x7) with 10 features, maxpool (3x1), convolution (3x3) with 20 features, maxpool (3x1), flatten, Dense (256), Dense (3).
+The hyperparameters of the neural network are refined by testing their performance in a tap onset detection task. First, the hop size of the FFT is decreased to 1024 from 2048 improving the F-measure to 0.9967. This is decreased again by half to check this trend,
 however a hop size of 512 reduces the F-measure down to 0.980 so a hop size of 1024 is fixed. Next, the size of the filters are increased to see their effect on accuracy. The hypothesis is that this will increase the accuracy as the filter size will then better
 will be more proportional to the input size. The filters are set to sizes of (12,7) and (12,3). With all other parameters unchanged, this in fact decreases the detection accuracy to an F-measure of 0.9931. The network depth is also reduced to a single layer to assess the impact
-and as expected this also decreases the overall accuracy. Finally, the number of neurons is the final dense layer is both decreased to 128 and increased to 512.
+and as expected this also decreases the overall accuracy. Finally, the number of neurons is the final dense layer is both decreased to 128 and increased to 512, both with the effect of decreasing accuracy.
 
-The dataset is shuffled to have a random selection of 80\% for training with a remaining 20\% reserved for offline testing. 
-The output of the neural network is a multi-class softmax function. 
+Two non-control onsets are now introduced, a single-finger tap on the lower-bout area and a slap-like gesture using the underside of the hand on the side of the guitar body. These are two common areas where percussive guitar would occur, thus
+it is important to see if a system could detect the differences between each type of onset location. This dataset now consists of 100 \emph{bridge taps}, 100 \emph{lower-bout taps} and 100 \emph{side slaps}. Again, the strings are baffled in all scenarios hence the dataset name \textbf{Muted\_String}.
+The ground truth is now an array of 3 integers, corresponding to an occurrence of each type of onset. The output of the model is modified to a multi-label sigmoid function. 
+
+The \textbf{Muted\_String} dataset is replicated but without the strings being muted, so they are free to resonate as they would in normal guitar playing, this is called \textbf{Open\_String}. The model is then evaluated on this new dataset by training and testing.
+
+A more realistic scenario for the \emph{control taps} to occur is whilst or directly after the strings have been strummed or picked with various fingerings on the fretboard. To test the model's performance on this in a controlled manner, an \textbf{Augmented} dataset is created. 
+This is done by overlaying the \textbf{Open\_String} dataset with sections from the \textbf{GuitarSet} dataset. The \textbf{GuitarSet} dataset is created using a hexaphonic pickup which records each string individually. These 6 tracks are summed together as
+to create a single output like that of a normal pickup. The gain of the audio being overlaid is adjusted to be at the same relative amplitude as the onsets. This is achieved by recording a similar style of playing on the acoustic guitar and measuring the gain, then matching
+the gain of the \textbf{GuitarSet} to this. Excepts from the 5 musical styles in the dataset from the first player are overlaid onto each track. 
+
+As it is now established how well the model can perform at detecting each separate type of onset, the model is simplified into a binary classifier either detecting a \emph{control tap} or anything else (guitar playing, \emph{lower-bout taps} or \emph{side slaps}). 
+This is first evaluated on the \textbf{Open\_String} dataset, then this dataset is appended by a further 100 \emph{control taps} to ensure that when performing the binary classification the dataset is balanced between the two classes. This is called \textbf{Open\_String\_Balanced}. 
+These additional \emph{control taps} are overlaid with the same \textbf{GuitarSet} excerpts as before, creating an \textbf{Augmented\_Balanced} dataset to be compared with the multi-label classification.
+
+The dataset is still fairly limited with 400 total onsets, to increase the diversity of the dataset a further 200 \emph{control taps}, 100 \emph{lower-bout taps} and 100 \emph{side slaps} are recorded and annotated. As before, these are augmented creating an \textbf{Augmented\_Extended} dataset. 
+
+Another guitar, manufactured by ``Lag'' and with a HyVibe system installed is used to create a new dataset following exactly the same procedure as \textbf{Open\_String\_Balanced}.
 
 To test the feasibility of such a classification system, a prototype was developed to recognize the onsets of three positions of tapping in real time and send one MIDI message to the HyVibe system.
-
 The real time detection system is written in Python and sends serial messages to an ESP32 development board which is programmed in C++ to send a MIDI message whenever a serial
 message of `1' is received. If a threshold of 0.5 is reached for a control tap prediction, and the previous prediction was 0, then the serial message is sent.
 This then triggers the MIDI message of type 'note-off' to be sent to the HyVibe system over BLE.
 
-A dataset for training and testing is created from scratch. The first set is created using the existing electroacoustic guitar.
-An initial dataset is created which involved stopping any movement of the guitar strings by baffling them with a cloth. 100 taps to the saddleboard are recorded and hand annotated, these are varied as much as possible
-in terms of the tap velocity and the exact location of impact on the saddleboard.
-
-For the next dataset 100 taps are also performed on the lowerbout area of the guitar as well as 100 slaps to the lowerside of the guitar to
-emulate common percussive positions. Again, the strings are baffled in all scenarios hence the dataset name ``Muted\_String''.
-
-This dataset is recreated but without the baffle for the strings, so they are free to resonate as they would in normal guitar playing, this is called ``Open\_String''. 
-
-This dataset is increased by adding a further 100 taps to the saddleboard to ensure that when performing the binary classification the dataset is balanced between the two classes. This is called ``Open\_String\_Balanced''. 
-
 A special dataset is created to test the taps along/away from the brace which involved placing tape as close of possible along the location of the internal brace structure and creating a recording of 100 taps along this brace and another 100 not along the 
 brace. These two datasets are named ``Along\_Brace'' and ``Away\_Brace'' respectively.
 
-The next stage is to create an augmented dataset, overlaying the ``Open\_String'' dataset with sections from the GuitarSet dataset. The dataset is created using a hexaphonic pickup which records each string individually. These 6 tracks are summed together as
-to create a single output like that of a normal pickup.
-
-Another guitar, manufactured by ``Lag'' and with a HyVibe system installed is used to create a new dataset following exactly the same procedure as `Open\_String\_Balanced'.
-
 The final stage of testing involves using the ``Lag'' guitar as an end-user would with a combination of typical guitar playing, percussive taps and control taps. 
 To maximize reproducibility potential, a defined set of chords are played along with specific tapping locations. The order of playing is as follows: G, D, Am, Bridge Tap, G, D, Am, Lower Bout Tap, G, D, Am, Side Slap with 1 second between each event. This sequence is repeated 25 times strummed using a 
-plectrum and another 25 times strummed using a finger. 
+plectrum and another 25 times strummed using a finger.
+
+To check that the real-time system is performing as expected in an automated manner, recorded audio from a dataset that the model is trained on is looped back into the computer. Each onset detected sends out at MIDI message which is recorded in the DAW. These message locations
+are then checked against the onsets in the recording.
 
 
 \begin{figure}[htbp]
@@ -210,9 +218,23 @@ plectrum and another 25 times strummed using a finger.
     \end{figure}
 
 \section{Results \& Discussion}
+The best accuracy for the hyperparameter selection for the initial tests was found to be 0.9934 with a (3x7) and (3x3) filter size, FFT size of 1024 and dense layer of 256 neurons.
+At a sample rate of 44.1kHz, this relates to an actual window width of 93ms, which is already established as being ideal for music related tasks. 
 
-The results of the initial prototype are promising, although this represents an ideal scenario with no other noise and only three tap locations. For the offline system, this has an
-average F-measure of 0.99.
+The first evaluation involves the \textbf{Muted\_String} dataset. This was run for 10 epochs with a batch size of 32. The F-measure for each class is 0.9770, 0.9691 and 0.9711. 
+There are more false positives than false negatives for the \emph{control tap} and \emph{lower-bout tap} but the opposite for \emph{side slap} suggesting that. 
+
+For the \textbf{Open\_String} dataset, after 30 epochs the F-measures are 0.9877, 0.9797 and 0.9691.
+
+For the \textbf{Augmented} dataset, after 30 epochs the F-measures are 0.6143, 0.5973 and 0.5688, and average of 0.5935. The number of epochs is increased to 50 which improves the average
+F-measure to 0.6639.
+
+Next for the binary classification model, for \textbf{Open\_String} this achieves an F-measure of 0.9782, and \textbf{Open\_String\_Balanced} 0.9901. 
+
+\textbf{Augmented\_Balanced} has an F-measure of 0.8533. 
+
+\textbf{Augmented\_Extended} has an F-measure of 0.8802.
+
 
 The real-time system is also tested for latency in three scenarios, first when triggered by an onset tap, then from a keyboard press from Python, and finally a button press directly from the
 ESP32 board. These scenarios will determine where the sources of latency occur. The latency for the fist scenario is measured by recording the audio output from the guitar and measuring the time difference between the first audio peak in the onset and the first audio peak in the metronome.
@@ -222,8 +244,7 @@ the serial message directly from the Python script via a keyboard press, the lat
 There is a serious bottleneck in the system at the serial communication layer. The onset detection itself only accounts for an average of 130ms of latency. Other methods to relay the signal
 from Python may have to be considered.
 
-The second prototype is more realistic scenario with string sounds included in the dataset instead of the strings being baffled. This now includes two control tap scenarios, both baffled and non-baffled, and the two other non control taps both baffled and non-baffled,
-so a total of 6 scenarios. The F-measure remains fairly high at 0.98.
+
 
     \begin{table}[!t]
     \caption{Table to test captions and labels.}
@@ -245,16 +266,15 @@ the braces. The is evaluated further by creating 2 new datasets of percussive ta
 Figure shows the approximate location of these braces in the guitar under test, this will vary with different guitars, but a similar principal can be applied. This hypothesis is disproven as the F-measure for the dataset over the brace is actually higher than the 
 one away from the brace.
 
-When using the weights trained on the ``Open\_String\_Balanced'' dataset and using this to predict control onsets on the LAG guitar, this performed poorly with an F-measure of 0.240. This can be improved slightly be decreasing the classification threshold from 0.5 down to 0.3, then 0.2 and finally 0.1 reaching
+When using the weights trained on the \textbf{Open\_String\_Balanced} dataset and using this to predict control onsets on the LAG guitar, this performed poorly with an F-measure of 0.240. This can be improved slightly be decreasing the classification threshold from 0.5 down to 0.3, then 0.2 and finally 0.1 reaching
 a maximum F-measure of 0.264. This shows that the harmonic resonance produced by taps to the equivalent locations on different guitars vary significantly.
-
 
 The weights trained on the augmented dataset are evaluated further by using the ``LAG\_playing'' dataset, a realistic scenario involving a mixture of guitar playing and different taps. This again performed quite poorly with an F-measure of 0.273 at a threshold of 0.1. 
 
 Finally, the model is trained using the ``LAG\_playing'' dataset, which is the most likely continuing steps for implementing a releasable version of the system. For this the dataset would have to be expanded across different guitars and players, and playing techniques. When using this single dataset
 from one player on one guitar, an F-measure of 0.752 is achieved. 
 
-
+The real-time system evaluation showed that .
 
 \section{Conclusions \& Further Work}
 
@@ -283,7 +303,7 @@ To determine which locations and techniques for control taps would be the most s
 \bibitem{b13} O'Shea, K. and Nash, R. (2015) ``An introduction to convolutional neural networks.'', ArXiv, abs/1511.08458.
 \bibitem{b14} Tosi, J., Taffoni, F., Santacatterina, M., Sannino, R. and Formica, D. (2017) ``Performance Evaluation of Bluetooth Low Energy: A Systematic Review'', Sensors, 17(12), p. 2898. doi: 10.3390/s17122898.
 \bibitem{b15} Martelloni, A., Mcpherson, A. and Barthet, M. (2020) "Percussive Fingerstyle Guitar through the Lens of NIME: an Interview Study", New Interfaces for Musical Expression (NIME).
-
+\bibitem{b16} Marmaras, N. and Zarboutis, N. (1997) "Ergonomic redesign of the electric guitar", Applied Ergonomics, 28(1), pp. 59-67. doi: 10.1016/s0003-6870(96)00032-4.
 
 \end{thebibliography}
 \vspace{12pt}
