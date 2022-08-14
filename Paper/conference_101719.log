@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.10)  14 AUG 2022 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.10)  14 AUG 2022 20:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -397,48 +397,160 @@ File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@expandcount=\count284
  (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+))) (/usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks34
+\XKV@tempa@toks=\toks35
+)
+\XKV@depth=\count285
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (/usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box60
+)
+\tc@llx=\dimen275
+\tc@lly=\dimen276
+\tc@urx=\dimen277
+\tc@ury=\dimen278
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen279
+\adjbox@Height=\dimen280
+\adjbox@Depth=\dimen281
+\adjbox@Totalheight=\dimen282
+\adjbox@pwidth=\dimen283
+\adjbox@pheight=\dimen284
+\adjbox@pdepth=\dimen285
+\adjbox@ptotalheight=\dimen286
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count286
+) (/usr/local/texlive/2020/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box61
+\sift@deathcycles=\count287
+\@vwid@loff=\dimen287
+\@vwid@roff=\dimen288
+)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count285
-\l__pdf_internal_box=\box60
+\l__kernel_color_stack_int=\count288
+\l__pdf_internal_box=\box62
 ) (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux
 
 LaTeX Warning: Label `acoustic-bridge' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `conference_101719.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 -- Lines per column: 56 (exact).
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count286
-\scratchdimen=\dimen275
-\scratchbox=\box61
-\nofMPsegments=\count287
-\nofMParguments=\count288
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count289
-\MPscratchDim=\dimen276
-\MPnumerator=\count290
-\makeMPintoPDFobject=\count291
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count289
+\scratchdimen=\dimen289
+\scratchbox=\box63
+\nofMPsegments=\count290
+\nofMParguments=\count291
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count292
+\MPscratchDim=\dimen290
+\MPnumerator=\count293
+\makeMPintoPDFobject=\count294
+\everyMPtoPDFconversion=\toks37
 ) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -451,93 +563,94 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 <percussion-areas.png, id=13, 347.2975pt x 315.1775pt>
 File: percussion-areas.png Graphic file (type png)
 <use percussion-areas.png>
-Package pdftex.def Info: percussion-areas.png  used on input line 101.
+Package pdftex.def Info: percussion-areas.png  used on input line 102.
 (pdftex.def)             Requested size: 138.91653pt x 126.06876pt.
  [2 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/percussion-areas.png>]
 <guitar.png, id=19, 615.29875pt x 274.02374pt>
 File: guitar.png Graphic file (type png)
 <use guitar.png>
-Package pdftex.def Info: guitar.png  used on input line 125.
+Package pdftex.def Info: guitar.png  used on input line 121.
 (pdftex.def)             Requested size: 246.11513pt x 109.60754pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 139.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 139.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 <tanglewood-setup.png, id=20, 274.845pt x 366.168pt>
 File: tanglewood-setup.png Graphic file (type png)
 <use tanglewood-setup.png>
-Package pdftex.def Info: tanglewood-setup.png  used on input line 142.
+Package pdftex.def Info: tanglewood-setup.png  used on input line 144.
 (pdftex.def)             Requested size: 109.93604pt x 146.4646pt.
 <tanglewood-taps.png, id=21, 293.898pt x 390.258pt>
 File: tanglewood-taps.png Graphic file (type png)
 <use tanglewood-taps.png>
-Package pdftex.def Info: tanglewood-taps.png  used on input line 148.
+Package pdftex.def Info: tanglewood-taps.png  used on input line 154.
 (pdftex.def)             Requested size: 117.5571pt x 156.10042pt.
- [3 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/guitar.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/tanglewood-setup.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/tanglewood-taps.png>] [4]
-<classif-open.png, id=31, 394.47375pt x 279.0425pt>
+LaTeX Font Info:    Trying to load font information for U+msa on input line 159.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 159.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [3 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/guitar.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/tanglewood-setup.png>] [4 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/tanglewood-taps.png>]
+<classif-open.png, id=33, 394.47375pt x 279.0425pt>
 File: classif-open.png Graphic file (type png)
 <use classif-open.png>
-Package pdftex.def Info: classif-open.png  used on input line 279.
+Package pdftex.def Info: classif-open.png  used on input line 287.
 (pdftex.def)             Requested size: 157.7867pt x 111.615pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--295
-[]\OT1/ptm/m/n/10 Next, for the bi-nary clas-si-fi-ca-tion model, for
- []
-
-[5 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png>]
-<augmented-bridge.png, id=38, 325.215pt x 286.06876pt>
+ [5]
+<augmented-bridge.png, id=37, 325.215pt x 286.06876pt>
 File: augmented-bridge.png Graphic file (type png)
 <use augmented-bridge.png>
-Package pdftex.def Info: augmented-bridge.png  used on input line 301.
+Package pdftex.def Info: augmented-bridge.png  used on input line 312.
 (pdftex.def)             Requested size: 130.0837pt x 114.42546pt.
-<LAG-setup.jpg, id=39, 4641.34pt x 3481.005pt>
+<LAG-setup.jpg, id=38, 4641.34pt x 3481.005pt>
 File: LAG-setup.jpg Graphic file (type jpg)
 <use LAG-setup.jpg>
-Package pdftex.def Info: LAG-setup.jpg  used on input line 325.
+Package pdftex.def Info: LAG-setup.jpg  used on input line 338.
 (pdftex.def)             Requested size: 185.62198pt x 139.21648pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--339
+ [6 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/augmented-bridge.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 348--352
 []\OT1/ptm/m/n/10 When us-ing the weights trained on the
  []
 
-[6 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/augmented-bridge.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg>]
 <acoustic-bridge.png, id=44, 406.51875pt x 263.98625pt>
 File: acoustic-bridge.png Graphic file (type png)
 <use acoustic-bridge.png>
-Package pdftex.def Info: acoustic-bridge.png  used on input line 341.
+Package pdftex.def Info: acoustic-bridge.png  used on input line 354.
 (pdftex.def)             Requested size: 162.60461pt x 105.59262pt.
 <LAG-bridge.png, id=45, 406.51875pt x 263.98625pt>
 File: LAG-bridge.png Graphic file (type png)
 <use LAG-bridge.png>
-Package pdftex.def Info: LAG-bridge.png  used on input line 347.
+Package pdftex.def Info: LAG-bridge.png  used on input line 360.
 (pdftex.def)             Requested size: 162.60461pt x 105.59262pt.
- [7 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-bridge.png>]
-Underfull \hbox (badness 4291) in paragraph at lines 404--405
+
+Underfull \vbox (badness 1721) has occurred while \output is active []
+
+ [7 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-bridge.png>]
+Underfull \hbox (badness 4291) in paragraph at lines 418--419
 \OT1/ptm/m/n/8 si-cal In-stru-ments'', Mu-sic Per-cep-tion, 36(1), pp. 109-128. doi:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 []\OT1/ptm/m/n/8 HyVibe SA (2022) MIDI In-struc-tions. Avail-able at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 \OT1/ptm/m/n/8 https://www.hyvibeguitar.com/airturn-midi-instructions/ (Ac-cessed:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
 []\OT1/ptm/m/n/8 Ellinger, J. (2014) MIDI Ba-sics. Avail-able at:
  []
 
 
-Overfull \hbox (3.92546pt too wide) in paragraph at lines 409--410
+Overfull \hbox (3.92546pt too wide) in paragraph at lines 424--425
 \OT1/ptm/m/n/8 https://people.carleton.edu/ jellinge/m208w14/pdf/02MIDIBasics[]doc.pdf
+ []
+
+[8]
+Overfull \hbox (264.03064pt too wide) in paragraph at lines 438--497
+ [] 
  []
 
 
@@ -551,24 +664,26 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8] (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux)
+[9
+
+] (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13805 strings out of 480608
- 273699 string characters out of 5903630
- 494163 words of memory out of 5000000
- 29449 multiletter control sequences out of 15000+600000
- 566696 words of font info for 83 fonts, out of 8000000 for 9000
+ 14805 strings out of 480608
+ 290692 string characters out of 5903630
+ 633373 words of memory out of 5000000
+ 30409 multiletter control sequences out of 15000+600000
+ 568718 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,8n,60p,521b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,10n,60p,538b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" (8 pages, 14514934 bytes).
+Output written on "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" (9 pages, 14527285 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
