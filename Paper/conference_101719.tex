@@ -251,7 +251,13 @@ These additional \emph{control taps} are overlaid with the same \textbf{GuitarSe
 
 The dataset is still fairly limited with four hundred total onsets, to increase the diversity of the dataset a further two hundred \emph{control taps}, one hundred \emph{lower-bout taps} and one hundred \emph{side slaps} are recorded and annotated. As before these are augmented, creating an \textbf{Augmented\_Extended} dataset. 
 
-Another guitar, manufactured by ``LAG'' and with a HyVibe system installed is used to create a new dataset following exactly the same procedure as \textbf{Open\_String\_Balanced}.
+Another guitar, manufactured by ``LAG'' and with a HyVibe system installed is used to create a new dataset following exactly the same procedure as \textbf{Open\_String\_Balanced}. The experimental setup for this guitar can be seen in Fig. \ref{LAG-setup}.
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.04]{LAG-setup.jpg}}
+    \caption{The experimental setup for the ``LAG'' guitar}
+    \label{LAG-setup}
+    \end{figure}
 
 To test the feasibility of a real-time classification system, a prototype is developed to recognise the onsets of three positions of tapping in real-time and send one MIDI message to the HyVibe system.
 The real-time detection system is written in Python and sends serial messages to an ESP32 development board which is programmed in C++ to send a MIDI message whenever a serial
@@ -334,11 +340,7 @@ the serial message directly from the Python script via a keyboard press, the lat
 There is a serious bottleneck in the system at the serial communication layer. The onset detection itself only accounts for an average of 130ms of latency. Other methods to relay the signal
 from Python may have to be considered.
 
-\begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.04]{LAG-setup.jpg}}
-    \caption{The experimental setup for the ``LAG'' guitar}
-    \label{acoustic-bridge}
-    \end{figure}
+
 
 With an initial subjective test of the real-time system, it seemed that percussive taps occurring at positions over the internal braces were more likely to be misclassified as control taps, hypothesised that due to the acoustic resonance here being more similar to the bridge which is also structurally attached to
 the braces. The is evaluated further by creating two new datasets of percussive taps, one with taps occurring above the internal braces and one with taps occurring away from the internal braces. The F-measure is then calculated for each of these datasets.

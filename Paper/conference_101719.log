@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.10)  14 AUG 2022 22:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.10)  14 AUG 2022 22:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -448,9 +448,6 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__pdf_internal_box=\box62
 ) (/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux
 
-LaTeX Warning: Label `acoustic-bridge' multiply defined.
-
-
 LaTeX Warning: Label `' multiply defined.
 
 
@@ -589,70 +586,69 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 159.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/guitar.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/tanglewood-setup.png>] [4 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/tanglewood-taps.png>]
-<classif-open.png, id=33, 394.47375pt x 279.0425pt>
-File: classif-open.png Graphic file (type png)
-<use classif-open.png>
-Package pdftex.def Info: classif-open.png  used on input line 287.
-(pdftex.def)             Requested size: 157.7867pt x 111.615pt.
- [5]
-<augmented-bridge.png, id=37, 325.215pt x 286.06876pt>
-File: augmented-bridge.png Graphic file (type png)
-<use augmented-bridge.png>
-Package pdftex.def Info: augmented-bridge.png  used on input line 312.
-(pdftex.def)             Requested size: 130.0837pt x 114.42546pt.
- [6 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/augmented-bridge.png>]
-<LAG-setup.jpg, id=43, 4641.34pt x 3481.005pt>
+<LAG-setup.jpg, id=33, 4641.34pt x 3481.005pt>
 File: LAG-setup.jpg Graphic file (type jpg)
 <use LAG-setup.jpg>
-Package pdftex.def Info: LAG-setup.jpg  used on input line 338.
+Package pdftex.def Info: LAG-setup.jpg  used on input line 257.
 (pdftex.def)             Requested size: 185.62198pt x 139.21648pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 348--352
+ [5 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg>]
+<classif-open.png, id=37, 394.47375pt x 279.0425pt>
+File: classif-open.png Graphic file (type png)
+<use classif-open.png>
+Package pdftex.def Info: classif-open.png  used on input line 293.
+(pdftex.def)             Requested size: 157.7867pt x 111.615pt.
+<augmented-bridge.png, id=38, 325.215pt x 286.06876pt>
+File: augmented-bridge.png Graphic file (type png)
+<use augmented-bridge.png>
+Package pdftex.def Info: augmented-bridge.png  used on input line 318.
+(pdftex.def)             Requested size: 130.0837pt x 114.42546pt.
+ [6 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/augmented-bridge.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 350--354
 []\OT1/ptm/m/n/10 When us-ing the weights trained on the
  []
 
 <acoustic-bridge.png, id=44, 406.51875pt x 263.98625pt>
 File: acoustic-bridge.png Graphic file (type png)
 <use acoustic-bridge.png>
-Package pdftex.def Info: acoustic-bridge.png  used on input line 354.
+Package pdftex.def Info: acoustic-bridge.png  used on input line 356.
 (pdftex.def)             Requested size: 162.60461pt x 105.59262pt.
 <LAG-bridge.png, id=45, 406.51875pt x 263.98625pt>
 File: LAG-bridge.png Graphic file (type png)
 <use LAG-bridge.png>
-Package pdftex.def Info: LAG-bridge.png  used on input line 360.
+Package pdftex.def Info: LAG-bridge.png  used on input line 362.
 (pdftex.def)             Requested size: 162.60461pt x 105.59262pt.
-[7 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-bridge.png>]
-Underfull \hbox (badness 4291) in paragraph at lines 418--419
+[7 </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png> </Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-bridge.png>]
+Underfull \hbox (badness 4291) in paragraph at lines 420--421
 \OT1/ptm/m/n/8 si-cal In-stru-ments'', Mu-sic Per-cep-tion, 36(1), pp. 109-128. doi:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
 []\OT1/ptm/m/n/8 HyVibe SA (2022) MIDI In-struc-tions. Avail-able at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
 \OT1/ptm/m/n/8 https://www.hyvibeguitar.com/airturn-midi-instructions/ (Ac-cessed:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 424--425
+Underfull \hbox (badness 10000) in paragraph at lines 426--427
 []\OT1/ptm/m/n/8 Ellinger, J. (2014) MIDI Ba-sics. Avail-able at:
  []
 
 
-Overfull \hbox (3.92546pt too wide) in paragraph at lines 424--425
+Overfull \hbox (3.92546pt too wide) in paragraph at lines 426--427
 \OT1/ptm/m/n/8 https://people.carleton.edu/ jellinge/m208w14/pdf/02MIDIBasics[]doc.pdf
  []
 
 [8] [9]
-Overfull \hbox (264.03064pt too wide) in paragraph at lines 440--498
+Overfull \hbox (264.03064pt too wide) in paragraph at lines 442--500
  [] 
  []
 
 
-Overfull \hbox (48.5904pt too wide) in paragraph at lines 502--516
+Overfull \hbox (48.5904pt too wide) in paragraph at lines 504--518
  [][] 
  []
 
@@ -675,15 +671,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14805 strings out of 480608
- 290692 string characters out of 5903630
- 632373 words of memory out of 5000000
- 30409 multiletter control sequences out of 15000+600000
+ 14806 strings out of 480608
+ 290703 string characters out of 5903630
+ 632381 words of memory out of 5000000
+ 30410 multiletter control sequences out of 15000+600000
  568718 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,10n,60p,538b,701s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" (10 pages, 14527821 bytes).
+Output written on "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" (10 pages, 14527947 bytes).
 PDF statistics:
  83 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream

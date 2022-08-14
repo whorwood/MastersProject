@@ -255,6 +255,9 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg
+INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg
+INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/classif-open.png
@@ -263,9 +266,6 @@ INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/augmented-bridge.png
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
-INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg
-INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg
-INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/LAG-setup.jpg
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png
 INPUT /Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/acoustic-bridge.png
