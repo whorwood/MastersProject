@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1660514019 "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.tex" "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" "conference_101719" 1660514287
-  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux" 1660514021 3180 069c71c2cf1f1e9e7e28f6ab558d8be6 ""
-  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.tex" 1660514284 56800 5a7fc74a0adee97507e4c9e8fda72b9e ""
+["pdflatex"] 1660517274 "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.tex" "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf" "conference_101719" 1660517276
+  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.aux" 1660517276 3180 59cb9437ef553f0216d8978243cba3e4 ""
+  "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.tex" 1660517273 56895 e4c1a231fdb89b19524dab8d44daab4b ""
   "/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -149,15 +149,15 @@
   "acoustic-bridge.png" 1660131514 23180 81d293a0c2d5154d4051f3b4155098b7 ""
   "augmented-bridge.png" 1660483551 76470 d2c493e3af0c058ebe689c2f04a16585 ""
   "classif-open.png" 1659458341 9848 2b67a64885ef061eb231d13b5fcbe492 ""
-  "conference_101719.aux" 1660514021 3180 069c71c2cf1f1e9e7e28f6ab558d8be6 "pdflatex"
-  "conference_101719.tex" 1660514284 56800 5a7fc74a0adee97507e4c9e8fda72b9e ""
+  "conference_101719.aux" 1660517276 3180 59cb9437ef553f0216d8978243cba3e4 "pdflatex"
+  "conference_101719.tex" 1660517273 56895 e4c1a231fdb89b19524dab8d44daab4b ""
   "guitar.png" 1657467197 50765 fa7b45c6eb2e2da588acbc89604d04f3 ""
   "percussion-areas.png" 1660239326 77325 3788e6a5ee614ebbd48665ee0b2a91e8 ""
   "tanglewood-setup.png" 1660311120 3262426 4f529990ff292d4387e5da9f9dea5899 ""
   "tanglewood-taps.png" 1660311256 3978132 7f38ee1781debd8b3008571f98323df0 ""
   (generated)
-  "conference_101719.aux"
-  "conference_101719.log"
   "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.log"
+  "conference_101719.log"
   "conference_101719.pdf"
   "/Users/oliverwhorwood/Documents/Dissertation_Paper_Template - LATEX/Paper/conference_101719.pdf"
+  "conference_101719.aux"

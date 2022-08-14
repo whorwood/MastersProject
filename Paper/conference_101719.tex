@@ -15,7 +15,7 @@
 
 \begin{document}
 
-\title{Guitar Percussive Classification for Control of an External System\\
+\title{Real-time sensor-based percussive gesture recognition for smart guitar\\
 }
 
 \author{\IEEEauthorblockN{Oliver Whorwood}
@@ -138,7 +138,7 @@ The system will make use of the HyVibe System Installation Kit which consists of
 This system is installed on an existing electroacoustic guitar, which will be referred to as the ``Tanglewood'', with its piezoelectric sensor replaced. The main controller unit and connection panel are not installed due to incompatibility with the existing slots in
 the body of the guitar. Instead, the cable for the piezoelectric sensor is fed through a slot in the body to be connected to the rest of the electronics which remain outside the guitar. This experimental setup can be
 seen in Fig. \ref{tanglewood-setup}. External sounds are less likely to be picked up than with a microphone, so the dataset collection is not undertaken in anechoic conditions, but the guitar is rested on a soft surface to reduce any low
-vibrations reaching the sensor.
+vibrations reaching the sensor. The gain of the HyVibe system is set to 100/100 for all datasets.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.4]{tanglewood-setup.png}}
@@ -235,7 +235,7 @@ The model and weights from each training session are saved for future evaluation
 
 Two non-control onsets are now introduced, a single-finger tap on the lower-bout area and a slap-like gesture using the underside of the hand on the side of the guitar body, both of which are illustrated again in Fig. \ref{tanglewood-taps}. These are two common areas where percussive guitar would occur, thus
 it is important to see if a system could detect the differences between each type of onset location. This dataset now consists of one hundred \emph{bridge taps}, one hundred \emph{lower-bout taps} and one hundred \emph{side slaps}. Again, the strings are baffled in all scenarios hence the dataset name \textbf{Muted\_String}.
-The ground truth is now an array of 3 integers, corresponding to an occurrence of each type of onset. The output of the model is modified to a multi-label sigmoid function, so the final layer becomes: Dense (3). 
+The ground truth is now an array of three integers, corresponding to an occurrence of each type of onset. The output of the model is modified to a multi-label sigmoid function, so the final layer becomes: Dense (3). 
 
 Next, the \textbf{Muted\_String} dataset is replicated but without the strings being muted, so they are free to resonate as they would in normal guitar playing, this is called \textbf{Open\_String}. No fingerboard fingering occurs during this dataset, so the resonance of the strings is related 
 to the most commonly used open tuning (Sparks, 1997): E (82.41 Hz), A (110.00 Hz), D (146.83 Hz), G (196.00 Hz), B (246.94 Hz), E (329.63 Hz) (Suits, 2022). The model is then evaluated on this new dataset by training and testing.
@@ -344,7 +344,7 @@ from Python may have to be considered.
 
 With an initial subjective test of the real-time system, it seemed that percussive taps occurring at positions over the internal braces were more likely to be misclassified as control taps, hypothesised that due to the acoustic resonance here being more similar to the bridge which is also structurally attached to
 the braces. The is evaluated further by creating two new datasets of percussive taps, one with taps occurring above the internal braces and one with taps occurring away from the internal braces. The F-measure is then calculated for each of these datasets.
-Figure shows the approximate location of these braces in the guitar under test, this will vary with different guitars, but a similar principal can be applied. This hypothesis is disproven as the F-measure for the dataset over the brace is actually slightly higher than the 
+Fig. \ref{tanglewood-setup} shows the approximate location of these braces in the guitar under test, this will vary with different guitars, but a similar principal can be applied. This hypothesis is disproven as the F-measure for the dataset over the brace is actually slightly higher than the 
 one away from the brace at 0.9709 compared to 0.9518. It could be that the proximity of the tap to the bridge has more of an effect than whether it occurs over a brace, this would need to be verified by further experimentation. 
 
 When using the weights trained on the \textbf{Open\_String\_Balanced} dataset and using this to predict control onsets on the ``LAG'' guitar, this performed poorly with an F-measure of 0.240. This can be improved slightly be decreasing the classification threshold from 0.5 to 0.1 reaching
@@ -381,7 +381,7 @@ surface during dataset collection.
 The real-time system evaluation had an F-measure of 1, as there was perfect detection of all onsets. This is expected as the real-time system uses the same model implementation with the only difference being the method and libraries used
 for reading in the real-time audio stream. 
 
-Subjectively, using the system to control effects was quite temperamental in terms of the accuracy and false triggers which impeded the natural flow of guitar playing. Although once the script is executed, this keeps running without any faults or errors and the predictions reliably complete on time.
+Subjectively, using the system to control effects was quite temperamental in terms of the accuracy and false triggers which impeded the natural flow of guitar playing. However, once the script is executed, this keeps running without any faults or errors and the predictions reliably complete on time.
 
 \section{Conclusions \& Further Work}
 
