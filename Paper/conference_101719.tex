@@ -56,7 +56,7 @@ due to the wide frequency response produced and onsets which tend to be noisy (W
 and ``Activation-Based''. ``Segmentation-Based'' methods tend to use simple Onset Detection Functions based around the envelope of the signal. This has the advantage of being very simple
 to implement however this method tends to perform poorly when other types of instrument, particularly pitched, are added to the mix. ``Classification-Based'' methods are based around
 a more complex input representation combining things such as spectral centroid, RMS energy and Mel-Frequency Cepstral Coefficients. The input representation can be finely tuned to increase
-the accuracy of classification. This still suffers from interference of melodic instruments if these have not been introduced in the training phase.``Language-Based'' methods use language
+the accuracy of classification. This still suffers from interference of melodic instruments if these have not been introduced in the training phase. ``Language-Based'' methods use language
 models such as Hidden Markov Models (HMMs) to detect patterns in the features of the audio. It is not commonly used in ADT scenarios as the structure of music does not follow patterns
 as closely as natural language. Modern ``Activation-Based'' methods use either Non-negative Matrix Factorisation (NMF) or Recurrent Neural Network (RNN) and produce easy to interpret
 outputs and can also be used in source separation tasks. They can suffer from degradation due to sources overlapping. This section also outlines the use of CNNs in the most recent papers. 
@@ -142,7 +142,7 @@ vibrations reaching the sensor.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.4]{tanglewood-setup.png}}
-    \caption{The Tanglewood guitar setup with the HyVibe system plugged in. The approximate location of the internal brace is shown in blue.}
+    \caption{The ``Tanglewood'' guitar setup with the HyVibe system plugged in. The approximate location of the internal brace is shown in blue.}
     \label{tanglewood-setup}
     \end{figure}
 
@@ -251,7 +251,7 @@ These additional \emph{control taps} are overlaid with the same \textbf{GuitarSe
 
 The dataset is still fairly limited with four hundred total onsets, to increase the diversity of the dataset a further two hundred \emph{control taps}, one hundred \emph{lower-bout taps} and one hundred \emph{side slaps} are recorded and annotated. As before these are augmented, creating an \textbf{Augmented\_Extended} dataset. 
 
-Another guitar, manufactured by \emph{LAG} and with a HyVibe system installed is used to create a new dataset following exactly the same procedure as \textbf{Open\_String\_Balanced}.
+Another guitar, manufactured by ``LAG'' and with a HyVibe system installed is used to create a new dataset following exactly the same procedure as \textbf{Open\_String\_Balanced}.
 
 To test the feasibility of a real-time classification system, a prototype is developed to recognise the onsets of three positions of tapping in real-time and send one MIDI message to the HyVibe system.
 The real-time detection system is written in Python and sends serial messages to an ESP32 development board which is programmed in C++ to send a MIDI message whenever a serial
@@ -262,7 +262,7 @@ which activates the looper recording proceeded by a metronome count in (HyVibe S
 A special dataset is created to test the taps along/away from the internal brace structure which involved placing tape as close as possible along the location of the brace and creating a recording of one hundred taps along this brace and another one hundred not along the 
 brace. These two datasets are named \textbf{Along\_Brace} and \textbf{Away\_Brace} respectively. 
 
-The final stage of onset detection testing involves using the \emph{LAG} guitar as an end-user would with a combination of typical guitar playing, percussive taps and \emph{control taps}. 
+The final stage of onset detection testing involves using the ``LAG'' guitar as an end-user would with a combination of typical guitar playing, percussive taps and \emph{control taps}. 
 To maximize reproducibility potential, a defined set of chords are played along with specific tapping locations. The order of playing is as follows: G Major, D Major, A Minor, \emph{bridge tap}, G Major, D Major, A Minor, \emph{lower-bout tap}, G Major, D Major, A Minor, \emph{side slap} with a one second interval between each event.
 This entire sequence is repeated twenty-five times with the guitar strummed using a plectrum and another twenty-five times strummed using the first finger.
 
@@ -301,7 +301,7 @@ Next, for the binary classification model, the \textbf{Open\_String} dataset in 
 dataset which suggests that actually all three onset types can be differentiated well otherwise the model would see a bigger increase in performance when the two percussive types are combined to one label. Having a balanced dataset increases
 the accuracy as previously there was probably bias towards the other onset types.
 
-The equivalent test on \textbf{LAG} with open strings has an F-measure of 0.9855 after thirty epochs. This is lower than the ``Tanglewood'' accuracy even with the gain matched for the onsets which occur in the same equivalent locations on both guitars. The subtle difference in the
+The equivalent test on the \textbf{LAG} dataset with open strings has an F-measure of 0.9855 after thirty epochs. This is lower than the ``Tanglewood'' accuracy even with the gain matched for the onsets which occur in the same equivalent locations on both guitars. The subtle difference in the
 harmonic response could be less favourable in terms of pattern recognition.
 
 \textbf{Augmented\_Balanced} has an F-measure of 0.9406. As expected, this is less accurate as there are now instances of other frequency content overlapping the control taps making them harder
@@ -326,17 +326,17 @@ by a single STFT time bin each iteration which did not allow sufficient time for
 across the boundary of two windows, there might not be enough information for a correct prediction. When looking at the spectrogram output, it was noticed that the majority of the frequency content of the onset is contained within three 
 consecutive bins. Therefore, a compromise was made of iterating twelve bins so that there is always an overlap of three.
 
-The real-time system is also tested for latency in three scenarios, first when triggered by an onset tap, then from a keyboard press from Python, and finally a button press directly from the
-ESP32 board. These scenarios will determine where the sources of latency occur. The latency for the fist scenario is measured by recording the audio output from the guitar and measuring the time difference between the first audio peak in the onset and the first audio peak in the metronome.
-The second scenario is measured by sending a MIDI message internally to the DAW on a key press (enter) which is recorded alongside the audio output. For the third scenario the button is pressed at the same time as a note on a MIDI keyboard, which is recorded in the DAW. 
-Each scenario is tested five times and the average latency is calculated. For the onset trigger, the total latency is a fairly substantial 1167.4ms. Comparing this with sending
-the serial message directly from the Python script via a keyboard press, the latency is 1037.4ms. Finally, when the button is used, the latency is less than 1ms.
+The real-time system is also tested for latency in three scenarios, first the time taken for the metronome loop to start when triggered by a \emph{control tap}, then from a keyboard press directly from Python, and finally a press of a physical button connected directly to a digital pin on the ESP32 board. 
+These scenarios will determine where the sources of latency occur. The latency for the first scenario is measured by recording the audio output from the guitar and measuring the time difference between the first audio peak in the onset and the first audio peak in the metronome produced by the HyVibe system.
+The second scenario is measured by sending a MIDI message internally to the DAW on a key press (enter) which is recorded alongside the audio output. For the third scenario the ESP32 button is pressed at the same time as a note on a MIDI keyboard, which is recorded in the DAW. 
+Each scenario is tested five times and the average latency is calculated. For the \emph{control tap} trigger, the total latency is a fairly substantial 1167.4ms. Comparing this with sending
+the serial message directly from the Python script via a keyboard press, the latency is 1037.4ms. Finally, when the button on the ESP32 is used, the latency is less than 1ms.
 There is a serious bottleneck in the system at the serial communication layer. The onset detection itself only accounts for an average of 130ms of latency. Other methods to relay the signal
 from Python may have to be considered.
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.04]{LAG-setup.jpg}}
-    \caption{The experimental setup for the LAG guitar}
+    \caption{The experimental setup for the ``LAG'' guitar}
     \label{acoustic-bridge}
     \end{figure}
 
@@ -345,9 +345,9 @@ the braces. The is evaluated further by creating two new datasets of percussive 
 Figure shows the approximate location of these braces in the guitar under test, this will vary with different guitars, but a similar principal can be applied. This hypothesis is disproven as the F-measure for the dataset over the brace is actually slightly higher than the 
 one away from the brace at 0.9709 compared to 0.9518. It could be that the proximity of the tap to the bridge has more of an effect than whether it occurs over a brace, this would need to be verified by further experimentation. 
 
-When using the weights trained on the \textbf{Open\_String\_Balanced} dataset and using this to predict control onsets on the LAG guitar, this performed poorly with an F-measure of 0.240. This can be improved slightly be decreasing the classification threshold from 0.5 to 0.1 reaching
-a maximum F-measure of 0.264. This shows that the harmonic resonance produced by taps to the equivalent locations on different guitars vary significantly and that the generalisation of the model is low. The reverse of this process is also tested, so using the LAG trained model to predict
-onsets in the \textbf{Open\_String\_Balanced} dataset. The F-measure was slightly higher at 0.4547 and did not increase with lower threshold values. When observing the spectrogram representation of an example of a \emph{control tap} on the \emph{Tanglewood} guitar compared to the \emph{LAG},
+When using the weights trained on the \textbf{Open\_String\_Balanced} dataset and using this to predict control onsets on the ``LAG'' guitar, this performed poorly with an F-measure of 0.240. This can be improved slightly be decreasing the classification threshold from 0.5 to 0.1 reaching
+a maximum F-measure of 0.264. This shows that the harmonic resonance produced by taps to the equivalent locations on different guitars vary significantly and that the generalisation of the model is low. The reverse of this process is also tested, so using the \textbf{LAG} trained model to predict
+onsets in the \textbf{Open\_String\_Balanced} dataset. The F-measure was slightly higher at 0.4547 and did not increase with lower threshold values. When observing the spectrogram representation of an example of a \emph{control tap} on the ``Tanglewood'' guitar compared to the ``LAG'',
 it can be seen that the frequency response varies a lot between the two, shown in Fig. \ref{acoustic-bridge} and Fig. \ref{LAG-bridge}.
 
 \begin{figure}[htbp]
@@ -366,20 +366,20 @@ The models trained on the augmented datasets are also tested in the same manner.
 and further suggests that the frequency characteristics vary a lot between the two guitars.
 
 Both these tests show that the models trained on a single guitar type are too overfit when used to predict onsets on another guitar. To try to combat this, the model is trained on a combination of datasets from both guitars. Before, the training/test split is undertaken after the shuffling of the dataset,
-however now the datasets for both guitars must be kept separate for evaluation, so the shuffling occurs after the training/test split. The combined model is tested against the test set from both the Open\_String as well as the LAG and the performance improved significantly achieving 
-an F-measure of 0.9852 and 0.9832 respectively.
+however now the datasets for both guitars must be kept separate for evaluation, so the shuffling occurs after the training/test split. The combined model is tested against the test set from both the \textbf{Open\_String} dataset as well as the \textbf{LAG} and the performance improved significantly achieving 
+an F-measure of 0.9826 and 0.9842 respectively.
 
 The weights trained on the augmented dataset are evaluated further by using the \textbf{LAG\_playing} dataset, a realistic scenario involving a mixture of guitar playing and different taps. This again performed quite poorly with an F-measure of 0.4170 at a threshold of 0.1. This was slightly surprising as the onsets themselves
 were produced in the same way as the open string dataset. The guitar playing sections are slightly higher amplitude than the average for the augmented audio causing different masking of the onsets which is probably throwing the model off.
 
 The model is then trained using the \textbf{LAG\_playing} dataset, which is the most likely continuing steps for implementing a releasable version of the system. For this to be realised fully, the dataset would have to be expanded across many different guitars and players, and playing techniques. When using this single dataset
-from one player on one guitar, an F-measure of 0.752 is achieved. The dataset would ideally be expanded to including a playing scenario on the \emph{tanglewood} guitar however this could not be achieved due to the HyVibe system not being installed securely in this guitar meaning it has to remain on a flat
+from one player on one guitar, an F-measure of 0.752 is achieved. The dataset would ideally be expanded to including a playing scenario on the ``Tanglewood'' guitar however this could not be achieved due to the HyVibe system not being installed securely in this guitar meaning it has to remain on a flat
 surface during dataset collection.
 
 The real-time system evaluation had an F-measure of 1, as there was perfect detection of all onsets. This is expected as the real-time system uses the same model implementation with the only difference being the method and libraries used
 for reading in the real-time audio stream. 
 
-Subjectively, using the system to control effects was quite temperamental in terms of the accuracy and false triggers which impeded the natural flow of guitar playing. Once the script is executed, this keeps running without any faults or errors and the predictions reliably complete on time.
+Subjectively, using the system to control effects was quite temperamental in terms of the accuracy and false triggers which impeded the natural flow of guitar playing. Although once the script is executed, this keeps running without any faults or errors and the predictions reliably complete on time.
 
 \section{Conclusions \& Further Work}
 
@@ -431,69 +431,90 @@ that the system can successfully differentiate between different onset types, it
 
 \end{thebibliography}
 \vspace{12pt}
-
+\newpage
+~\newpage
 \section{Appendix}
+
 \begin{table}[!ht]
      \centering
      \begin{adjustbox}{width=\textwidth}
-     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
-        \hline
-        Number & Trained on & Dense Outputs & Filter Size & FFT Size & Classification type & Dataset & Epochs & Label & TP & FP & FN & F-measure & Final Loss & Notes \\ \hline
-        1 & ~ & 256 & 3,7,3,3 & 2048 & Binary & Initial & 10 & ~ & 282 & 4 & 2 & 0.989473684 & 0.0133 & ~ \\ \hline
-        2 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Initial & 10 & ~ & 301 & 1 & 1 & 0.996688742 & 0.0066 & ~ \\ \hline
-        3 & ~ & 256 & 3,7,3,3 & 512 & Binary & Initial & 10 & ~ & 270 & 3 & 12 & 0.972972973 & 0.0037 & ~ \\ \hline
-        4 & ~ & 256 & 12,7,12,3 & 1024 & Binary & Initial & 10 & ~ & 284 & 0 & 5 & 0.991273997 & 0.0065 & ~ \\ \hline
-        5 & ~ & 256 & 3,3 & 1024 & Binary & Initial & 10 & ~ & 320 & 5 & 4 & 0.986132512 & 0.0061 & ~ \\ \hline
-        6 & ~ & 512 & 3,7,3,3 & 1024 & Binary & Initial & 10 & ~ & 324 & 6 & 0 & 0.990825688 & 0.0065 & ~ \\ \hline
-        7 & ~ & 128 & 3,7,3,3 & 1024 & Binary & Initial & 10 & ~ & 324 & 8 & 0 & 0.987804878 & 0.0072 & ~ \\ \hline
-        8 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Muted\_String & 10 & 0 & 297 & 14 & 0 & 0.976973684 & 0.0031 & ~ \\ \hline
-        8 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Muted\_String & 10 & 1 & 282 & 14 & 4 & 0.969072165 & 0.0031 & ~ \\ \hline
-        8 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Muted\_String & 10 & 2 & 286 & 5 & 12 & 0.971137521 & 0.0031 & ~ \\ \hline
-        9 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 10 & 0 & 295 & 11 & 3 & 0.976821192 & 0.003 & ~ \\ \hline
-        9 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 10 & 1 & 274 & 6 & 9 & 0.973357016 & 0.003 & ~ \\ \hline
-        9 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 10 & 2 & 281 & 4 & 3 & 0.987697715 & 0.003 & ~ \\ \hline
-        10 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 30 & 0 & 320 & 2 & 6 & 0.987654321 & 0.0004 & ~ \\ \hline
-        10 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 30 & 1 & 314 & 8 & 5 & 0.979719189 & 0.0004 & ~ \\ \hline
-        10 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 30 & 2 & 298 & 15 & 4 & 0.969105691 & 0.0004 & ~ \\ \hline
-        11 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Augmented & 30 & 0 & 257 & 18 & 26 & 0.921146953 & 0.005 & ~ \\ \hline
-        11 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Augmented & 30 & 1 & 224 & 36 & 61 & 0.822018349 & 0.005 & ~ \\ \hline
-        11 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Augmented & 30 & 2 & 241 & 14 & 42 & 0.895910781 & 0.005 & ~ \\ \hline
-        12 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Augmented\_Extended & 30 & ~ & 1110 & 50 & 96 & 0.938292477 & 0.0085 & ~ \\ \hline
-        13 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Open\_String & 30 & ~ & 292 & 10 & 3 & 0.978224456 & 0.0011 & ~ \\ \hline
-        14 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Open\_String\_Balanced & 30 & ~ & 602 & 6 & 6 & 0.990131579 & 0.0021 & ~ \\ \hline
-        15 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Augmented\_Balanced & 30 & ~ & 562 & 42 & 29 & 0.940585774 & 0.0054 & ~ \\ \hline
-        16 & 14 & 256 & 3,7,3,3 & 1024 & Binary & Along\_Brace & 0 & ~ & 17203 & 283 & 0 & 0.991841794 & ~ & ~ \\ \hline
-        17 & 15 & 256 & 3,7,3,3 & 1024 & Binary & Along\_Brace & 0 & ~ & 16497 & 989 & 0 & 0.970897213 & ~ & ~ \\ \hline
-        18 & 14 & 256 & 3,7,3,3 & 1024 & Binary & Away\_Brace & 0 & ~ & 17140 & 231 & 0 & 0.993306482 & ~ & ~ \\ \hline
-        19 & 15 & 256 & 3,7,3,3 & 1024 & Binary & Away\_Brace & 0 & ~ & 15775 & 1596 & 0 & 0.951849394 & ~ & ~ \\ \hline
-        20 & 15 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 589 & 1294 & 2434 & 0.240114146 & ~ & Thresh - 0.5 \\ \hline
-        20 & 15 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 644 & 1483 & 2379 & 0.250097087 & ~ & Thresh - 0.3 \\ \hline
-        20 & 15 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 691 & 1587 & 2332 & 0.260705527 & ~ & Thresh - 0.2 \\ \hline
-        20 & 15 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 731 & 1788 & 2292 & 0.263803681 & ~ & Thresh - 0.1 \\ \hline
-        21 & ~ & 256 & 3,7,3,3 & 1024 & Binary & LAG & 30 & ~ & 578 & 10 & 7 & 0.985507246 & 0.0019 & ~ \\ \hline
-        22 & ~ & 256 & 3,7,3,3 & 1024 & Binary & LAG\_Augmented & 30 & ~ & 523 & 28 & 94 & 0.895547945 & 0.0063 & ~ \\ \hline
-        23 & 23 & 256 & 3,7,3,3 & 1024 & Binary & LAG\_Playing & 0 & ~ & 145 & 10 & 605 & 0.320441989 & ~ & Thresh - 0.5 \\ \hline
-        23 & 23 & 256 & 3,7,3,3 & 1024 & Binary & LAG\_Playing & 0 & ~ & 171 & 15 & 579 & 0.365384615 & ~ & Thresh - 0.3 \\ \hline
-        23 & 23 & 256 & 3,7,3,4 & 1024 & Binary & LAG\_Playing & 0 & ~ & 182 & 19 & 568 & 0.382754995 & ~ & Thresh - 0.2 \\ \hline
-        23 & 23 & 256 & 3,7,3,5 & 1024 & Binary & LAG\_Playing & 0 & ~ & 206 & 32 & 544 & 0.417004049 & ~ & Thresh - 0.1 \\ \hline
-        24 & ~ & 256 & 3,7,3,6 & 1024 & Binary & LAG\_Playing & 30 & ~ & 123 & 54 & 27 & 0.752293578 & 0.0011 & ~ \\ \hline
-        25 & 22 & 256 & 3,7,3,7 & 1024 & Binary & Open\_String\_Balanced & 0 & ~ & 1682 & 2702 & 1333 & 0.454656035 & ~ & Thresh - 0.5 \\ \hline
-        25 & 22 & 256 & 3,7,3,8 & 1024 & Binary & Open\_String\_Balanced & 0 & ~ & 1749 & 2996 & 1266 & 0.450773196 & ~ & Thresh - 0.3 \\ \hline
-        26 & 16 & 256 & 3,7,3,9 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 450 & 138 & 2573 & 0.249238438 & ~ & Thresh - 0.5 \\ \hline
-        26 & 16 & 256 & 3,7,3,10 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 522 & 208 & 2501 & 0.278177458 & ~ & Thresh - 0.3 \\ \hline
-        26 & 16 & 256 & 3,7,3,11 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 583 & 272 & 2440 & 0.300670449 & ~ & Thresh - 0.2 \\ \hline
-        26 & 16 & 256 & 3,7,3,12 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 673 & 383 & 2350 & 0.329982839 & ~ & Thresh - 0.1 \\ \hline
-        27 & 23 & 256 & 3,7,3,13 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1243 & 1422 & 1772 & 0.437676056 & ~ & Thresh - 0.5 \\ \hline
-        27 & 23 & 256 & 3,7,3,14 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1351 & 1715 & 1664 & 0.444334813 & ~ & Thresh - 0.3 \\ \hline
-        27 & 23 & 256 & 3,7,3,15 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1417 & 1918 & 1598 & 0.446299213 & ~ & Thresh - 0.2 \\ \hline
-        27 & 23 & 256 & 3,7,3,16 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1543 & 2345 & 1472 & 0.447052006 & ~ & Thresh - 0.1 \\ \hline
-        28 & ~ & 256 & 3,7,3,17 & 1024 & Binary & Open\_String\_Balanced+LAG & 30 & ~ & ~ & ~ & ~ & ~ & 0.0019 & ~ \\ \hline
-        29 & 29 & 256 & 3,7,3,18 & 1024 & Binary & Open\_String\_Balanced & 0 & ~ & 566 & 11 & 9 & 0.982638889 & ~ & ~ \\ \hline
-        30 & 29 & 256 & 3,7,3,19 & 1024 & Binary & LAG & 0 & ~ & 592 & 11 & 8 & 0.984206151 & ~ & ~ \\ \hline
-        31 & ~ & 256 & 3,7,3,20 & 1024 & Binary & Augmented\_Extended & 30 & ~ & 1146 & 108 & 60 & 0.931707317 & 0.0104 & Dropout - 0.2 \\ \hline
-        
-     \end{tabular}
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+            \hline
+                Number & Trained on & Dense Outputs & Filter Size & FFT Size & Classification type & Dataset & Epochs & Label & TP & FP & FN & F-measure & Final Loss & Notes \\ \hline
+                1 & ~ & 256 & 3,7,3,3 & 2048 & Binary & Initial & 10 & ~ & 282 & 4 & 2 & 0.989473684 & 0.0133 & ~ \\ \hline
+                2 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Initial & 10 & ~ & 301 & 1 & 1 & 0.996688742 & 0.0066 & ~ \\ \hline
+                3 & ~ & 256 & 3,7,3,3 & 512 & Binary & Initial & 10 & ~ & 270 & 3 & 12 & 0.972972973 & 0.0037 & ~ \\ \hline
+                4 & ~ & 256 & 12,7,12,3 & 1024 & Binary & Initial & 10 & ~ & 284 & 0 & 5 & 0.991273997 & 0.0065 & ~ \\ \hline
+                5 & ~ & 256 & 3,3 & 1024 & Binary & Initial & 10 & ~ & 320 & 5 & 4 & 0.986132512 & 0.0061 & ~ \\ \hline
+                6 & ~ & 512 & 3,7,3,3 & 1024 & Binary & Initial & 10 & ~ & 324 & 6 & 0 & 0.990825688 & 0.0065 & ~ \\ \hline
+                7 & ~ & 128 & 3,7,3,3 & 1024 & Binary & Initial & 10 & ~ & 324 & 8 & 0 & 0.987804878 & 0.0072 & ~ \\ \hline
+                8 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Muted\_String & 10 & 0 & 297 & 14 & 0 & 0.976973684 & 0.0031 & ~ \\ \hline
+                8 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Muted\_String & 10 & 1 & 282 & 14 & 4 & 0.969072165 & 0.0031 & ~ \\ \hline
+                8 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Muted\_String & 10 & 2 & 286 & 5 & 12 & 0.971137521 & 0.0031 & ~ \\ \hline
+                9 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 10 & 0 & 295 & 11 & 3 & 0.976821192 & 0.003 & ~ \\ \hline
+                9 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 10 & 1 & 274 & 6 & 9 & 0.973357016 & 0.003 & ~ \\ \hline
+                9 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 10 & 2 & 281 & 4 & 3 & 0.987697715 & 0.003 & ~ \\ \hline
+                10 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 30 & 0 & 320 & 2 & 6 & 0.987654321 & 0.0004 & ~ \\ \hline
+                10 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 30 & 1 & 314 & 8 & 5 & 0.979719189 & 0.0004 & ~ \\ \hline
+                10 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Open\_String & 30 & 2 & 298 & 15 & 4 & 0.969105691 & 0.0004 & ~ \\ \hline
+                11 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Augmented & 30 & 0 & 257 & 18 & 26 & 0.921146953 & 0.005 & ~ \\ \hline
+                11 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Augmented & 30 & 1 & 224 & 36 & 61 & 0.822018349 & 0.005 & ~ \\ \hline
+                11 & ~ & 256 & 3,7,3,3 & 1024 & Multilabel & Augmented & 30 & 2 & 241 & 14 & 42 & 0.895910781 & 0.005 & ~ \\ \hline
+                12 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Augmented\_Extended & 30 & ~ & 1110 & 50 & 96 & 0.938292477 & 0.0085 & ~ \\ \hline
+                13 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Open\_String & 30 & ~ & 292 & 10 & 3 & 0.978224456 & 0.0011 & ~ \\ \hline
+                14 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Open\_String\_Balanced & 30 & ~ & 602 & 6 & 6 & 0.990131579 & 0.0021 & ~ \\ \hline
+                15 & ~ & 256 & 3,7,3,3 & 1024 & Binary & Augmented\_Balanced & 30 & ~ & 562 & 42 & 29 & 0.940585774 & 0.0054 & ~ \\ \hline
+                16 & 13 & 256 & 3,7,3,3 & 1024 & Binary & Along\_Brace & 0 & ~ & 17203 & 283 & 0 & 0.991841794 & ~ & ~ \\ \hline
+                17 & 14 & 256 & 3,7,3,3 & 1024 & Binary & Along\_Brace & 0 & ~ & 16497 & 989 & 0 & 0.970897213 & ~ & ~ \\ \hline
+                18 & 13 & 256 & 3,7,3,3 & 1024 & Binary & Away\_Brace & 0 & ~ & 17140 & 231 & 0 & 0.993306482 & ~ & ~ \\ \hline
+                19 & 14 & 256 & 3,7,3,3 & 1024 & Binary & Away\_Brace & 0 & ~ & 15775 & 1596 & 0 & 0.951849394 & ~ & ~ \\ \hline
+                20 & 14 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 589 & 1294 & 2434 & 0.240114146 & ~ & Thresh - 0.5 \\ \hline
+                20 & 14 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 644 & 1483 & 2379 & 0.250097087 & ~ & Thresh - 0.3 \\ \hline
+                20 & 14 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 691 & 1587 & 2332 & 0.260705527 & ~ & Thresh - 0.2 \\ \hline
+                20 & 14 & 256 & 3,7,3,3 & 1024 & Binary & LAG & 0 & ~ & 731 & 1788 & 2292 & 0.263803681 & ~ & Thresh - 0.1 \\ \hline
+                21 & ~ & 256 & 3,7,3,3 & 1024 & Binary & LAG & 30 & ~ & 578 & 10 & 7 & 0.985507246 & 0.0019 & ~ \\ \hline
+                22 & ~ & 256 & 3,7,3,3 & 1024 & Binary & LAG\_Augmented & 30 & ~ & 523 & 28 & 94 & 0.895547945 & 0.0063 & ~ \\ \hline
+                23 & 22 & 256 & 3,7,3,3 & 1024 & Binary & LAG\_Playing & 0 & ~ & 145 & 10 & 605 & 0.320441989 & ~ & Thresh - 0.5 \\ \hline
+                23 & 22 & 256 & 3,7,3,3 & 1024 & Binary & LAG\_Playing & 0 & ~ & 171 & 15 & 579 & 0.365384615 & ~ & Thresh - 0.3 \\ \hline
+                23 & 22 & 256 & 3,7,3,4 & 1024 & Binary & LAG\_Playing & 0 & ~ & 182 & 19 & 568 & 0.382754995 & ~ & Thresh - 0.2 \\ \hline
+                23 & 22 & 256 & 3,7,3,5 & 1024 & Binary & LAG\_Playing & 0 & ~ & 206 & 32 & 544 & 0.417004049 & ~ & Thresh - 0.1 \\ \hline
+                24 & ~ & 256 & 3,7,3,6 & 1024 & Binary & LAG\_Playing & 30 & ~ & 123 & 54 & 27 & 0.752293578 & 0.0011 & ~ \\ \hline
+                25 & 21 & 256 & 3,7,3,7 & 1024 & Binary & Open\_String\_Balanced & 0 & ~ & 1682 & 2702 & 1333 & 0.454656035 & ~ & Thresh - 0.5 \\ \hline
+                25 & 21 & 256 & 3,7,3,8 & 1024 & Binary & Open\_String\_Balanced & 0 & ~ & 1749 & 2996 & 1266 & 0.450773196 & ~ & Thresh - 0.3 \\ \hline
+                26 & 15 & 256 & 3,7,3,9 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 450 & 138 & 2573 & 0.249238438 & ~ & Thresh - 0.5 \\ \hline
+                26 & 15 & 256 & 3,7,3,10 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 522 & 208 & 2501 & 0.278177458 & ~ & Thresh - 0.3 \\ \hline
+                26 & 15 & 256 & 3,7,3,11 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 583 & 272 & 2440 & 0.300670449 & ~ & Thresh - 0.2 \\ \hline
+                26 & 15 & 256 & 3,7,3,12 & 1024 & Binary & LAG\_Augmented & 0 & ~ & 673 & 383 & 2350 & 0.329982839 & ~ & Thresh - 0.1 \\ \hline
+                27 & 22 & 256 & 3,7,3,13 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1243 & 1422 & 1772 & 0.437676056 & ~ & Thresh - 0.5 \\ \hline
+                27 & 22 & 256 & 3,7,3,14 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1351 & 1715 & 1664 & 0.444334813 & ~ & Thresh - 0.3 \\ \hline
+                27 & 22 & 256 & 3,7,3,15 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1417 & 1918 & 1598 & 0.446299213 & ~ & Thresh - 0.2 \\ \hline
+                27 & 22 & 256 & 3,7,3,16 & 1024 & Binary & Augmented\_Balanced & 0 & ~ & 1543 & 2345 & 1472 & 0.447052006 & ~ & Thresh - 0.1 \\ \hline
+                28 & ~ & 256 & 3,7,3,17 & 1024 & Binary & Open\_String\_Balanced+LAG & 30 & ~ & ~ & ~ & ~ & ~ & 0.0019 & ~ \\ \hline
+                29 & 28 & 256 & 3,7,3,18 & 1024 & Binary & Open\_String\_Balanced & 0 & ~ & 566 & 11 & 9 & 0.982638889 & ~ & ~ \\ \hline
+                30 & 28 & 256 & 3,7,3,19 & 1024 & Binary & LAG & 0 & ~ & 592 & 11 & 8 & 0.984206151 & ~ & ~ \\ \hline
+                31 & ~ & 256 & 3,7,3,20 & 1024 & Binary & Augmented\_Extended & 30 & ~ & 1146 & 108 & 60 & 0.931707317 & 0.0104 & Dropout - 0.2 \\ \hline
+            \end{tabular}
  \end{adjustbox}
  \end{table}
+
+ \begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|}
+    \hline
+        Trigger type & Time sent & Time metronome triggered & Latency & Average Latency \\ \hline
+        Onsets & 571 & 1774 & 1203 & ~ \\ \hline
+        ~ & 7215 & 8390 & 1175 & ~ \\ \hline
+        ~ & 13435 & 14586 & 1151 & ~ \\ \hline
+        ~ & 18662 & 19814 & 1152 & ~ \\ \hline
+        ~ & 25046 & 26202 & 1156 & 1167.4 \\ \hline
+        Keyboard & 3028 & 4077 & 1049 & ~ \\ \hline
+        ~ & 10406 & 11445 & 1039 & ~ \\ \hline
+        ~ & 17474 & 18500 & 1026 & ~ \\ \hline
+        ~ & 25057 & 26094 & 1037 & ~ \\ \hline
+        ~ & 30376 & 31412 & 1036 & 1037.4 \\ \hline
+    \end{tabular}
+\end{table}
+
+ 
 
 \end{document}
